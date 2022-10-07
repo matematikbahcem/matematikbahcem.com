@@ -1,0 +1,234 @@
+backend:
+  name: git-gateway
+  branch: master
+media_folder: public/image
+public_folder: /image
+collections:
+  - name: 'pages'
+    label: 'Pages'
+    files:
+      - label: 'Hakkımızda'
+        name: 'hakkimizda'
+        file: 'content/hakkimizda.md'
+        fields:
+          - { label: 'Başlık', name: 'title', widget: 'string' }
+          - { label: 'Gövde', name: 'body', widget: 'markdown' }
+      - label: 'Eğitim Felsefemiz'
+        name: 'egitimfelsefesi'
+        file: 'content/felsefe.md'
+        fields:
+          - { label: 'Başlık', name: 'title', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+      - label: 'Misyon ve Vizyon'
+        name: 'misyonvizyon'
+        file: 'content/ilkeler.md'
+        fields:
+          - { label: 'Başlık', name: 'title', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+      - label: 'Farkımız ve Programımız'
+        name: 'farkimiz'
+        file: 'content/farkimiz.md'
+        fields:
+          - { label: 'Başlık', name: 'title', widget: 'string' }
+          - { label: 'Açıklama', name: 'description', widget: 'text' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+      - label: 'Sıkça Sorulan Sorula'
+        name: 'sss'
+        file: 'content/sss.md'
+        fields:
+          - { label: 'Başlık', name: 'title', widget: 'string' }
+          - { label: 'Açıklama', name: 'description', widget: 'text' }
+          - label: "Sorular"
+            name: "sorular"
+            widget: list
+            fields:
+              - { label: "Soru Başlığı", name: "soru", widget: "string" }
+              - { label: "Cevabı", name: "text", widget: "text"}
+
+  - name: 'module'
+    label: 'Moduller'
+    files:
+      - label: 'Slider'
+        name: 'slider'
+        file: 'content/slider.md'
+        fields:
+          - { label: 'Başlık', name: 'baslik', widget: 'string' }
+          - label: 'Slide'
+            name: 'slider'
+            widget: list
+            fields:
+              - { label: 'Title', name: 'title', widget: 'string' }
+              - { label: 'Açıklama', name: 'description', widget: 'text' }
+              - { label: 'Url', name: 'url', widget: 'string' }
+              - label: 'Image'
+                name: 'image'
+                widget: 'image'
+                default: '/image/slider/bg_1.jpg'
+                media_library:
+                  config:
+                    multiple: false
+      - label: 'Pop-up Mesajı'
+        name: 'popup'
+        file: 'content/popup.md'
+        fields:
+          - { label: 'Pop-up Resmi', name: 'image', widget: 'image', default: '/image/tercih.jpg' }
+      - label: 'Etkinlikler'
+        name: 'etkinlik'
+        file: 'content/etkinlik.md'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Açıklama', name: 'description', widget: 'text' }
+          - label: 'Image'
+            name: 'image'
+            widget: 'image'
+            default: '/image/about.jpg'
+          - label: 'Etkinlikler'
+            name: 'etkinlikler'
+            widget: list
+            disableAdd: true
+            fields:
+              - { label: 'İsim', name: 'name', widget: 'string' }
+              - { label: 'Description', name: 'description', widget: 'text' }
+              - { label: 'Icon', name: 'icon', allow_add: true, media_folder: 'svg', widget: 'image', add_to_top: true }
+      - label: 'Anasayfa Hakkımızda'
+        name: 'about'
+        file: 'content/about.md'
+        fields:
+          - { label: 'Başlık', name: 'title', widget: 'string' }
+          - { label: 'Açıklama 1', name: 'description1', widget: 'string' }
+          - { label: 'Açıklama 2', name: 'description2', widget: 'string' }
+          - { label: 'Öğretmen Sayısı', name: 'ogretmen', widget: 'number', value_type: 'int', min: 1 }
+          - { label: 'Öğrenci Sayısı', name: 'ogrenci', widget: 'number', value_type: 'int', min: 1 }
+          - { label: 'Şube Sayısı', name: 'sube', widget: 'number', value_type: 'int', min: 1 }
+          - { label: 'Sınıf Sayısı', name: 'sinif', widget: 'number', value_type: 'int', min: 1 }
+      - label: 'Hizmetler'
+        name: 'hizmetler'
+        file: 'content/hizmetler.md'
+        fields:
+          - { label: 'Hizmet 1', name: 'hizmet1', widget: 'string' }
+          - { label: 'Açıklama 1', name: 'description1', widget: 'string' }
+          - { label: 'Hizmet 2', name: 'hizmet2', widget: 'string' }
+          - { label: 'Açıklama 2', name: 'description2', widget: 'text' }
+          - { label: 'Hizmet 3', name: 'hizmet3', widget: 'string' }
+          - { label: 'Açıklama 3', name: 'description3', widget: 'string' }
+          - { label: 'Hizmet 4', name: 'hizmet4', widget: 'string' }
+          - { label: 'Açıklama 4', name: 'description4', widget: 'text' }
+      - label: 'Footer'
+        name: 'footer'
+        file: 'content/footer.md'
+        fields:
+          - { label: 'Şube 1 Başlık', name: 'sube1_title', widget: 'string' }
+          - { label: 'Şube 1 Harita', name: 'sube1_map', widget: 'string' }
+          - { label: 'Şube 1 Telefon', name: 'sube1_tel', widget: 'string' }
+          - { label: 'Şube 1 E-posta', name: 'sube1_mail', widget: 'string' }
+          - { label: 'Şube 2 Başlık', name: 'sube2_title', widget: 'string' }
+          - { label: 'Şube 2 Harita', name: 'sube2_map', widget: 'string' }
+          - { label: 'Şube 2 E-posta', name: 'sube2_mail', widget: 'string' }
+          - { label: 'Şube 2 Telefon', name: 'sube2_tel', widget: 'string' }
+          - { label: 'Şube 3 Title', name: 'sube3_title', widget: 'string' }
+          - { label: 'Şube 3 Harita', name: 'sube3_map', widget: 'string' }
+          - { label: 'Şube 3 E-posta', name: 'sube3_mail', widget: 'string' }
+          - { label: 'Şube 3 Telefon', name: 'sube3_tel', widget: 'string' }
+          - { label: 'Alt Footer Açıklama', name: 'alt_footer', widget: 'text' }
+          - { label: 'Hizmet 2', name: 'youtube', widget: 'string' }
+          - { label: 'Açıklama 2', name: 'twitter', widget: 'string' }
+          - { label: 'Hizmet 3', name: 'facebook', widget: 'string' }
+          - { label: 'Açıklama 3', name: 'instagram', widget: 'string' }
+          - label: 'Linkler'
+            name: 'linkler'
+            widget: list
+            fields:
+              - { label: 'Link Adı', name: 'name', widget: 'string' }
+              - { label: 'Adresi', name: 'url', widget: 'string' }
+      - label: 'Yorumlar'
+        name: 'ogrenciyorumlari'
+        file: 'content/ogrenciyorumlari.md'
+        fields:
+          - { label: 'Başlık', name: 'title', widget: 'string' }
+          - label: 'Yorumlar'
+            name: 'comment'
+            widget: list
+            fields:
+              - { label: 'İsim Soyisim', name: 'isim', widget: 'string' }
+              - { label: 'Resim', name: 'image', widget: 'image' }
+              - { label: 'Statü', name: 'statu', widget: 'string' }
+              - { label: 'Mesajı', name: 'mesaj', widget: 'text' }
+      - label: 'Duyurular'
+        name: 'duyurular'
+        file: 'content/duyurular.md'
+        fields:
+          - { label: 'Başlık', name: 'title', widget: 'string' }
+          - { label: 'Açıklama', name: 'description', widget: 'text' }
+          - label: 'Duyurlar'
+            name: 'duyurulist'
+            widget: list
+            fields:
+              - { label: 'Başlık', name: 'name', widget: 'string' }
+              - { label: 'Açıklama', name: 'description', widget: 'text' }
+              - { label: 'Tarih', name: 'date', widget: 'datetime' }
+
+  # - label: 'Blog'
+  #   name: 'blog'
+  #   folder: '_posts/blog'
+  #   create: true
+  #   fields:
+  #     - { label: 'Name', name: 'name', widget: 'string' }
+  #     - { label: 'Slug', name: 'slug', widget: 'string' }
+  #     - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+  #     - { label: 'Featured Image', name: 'thumbnail', widget: 'image' }
+  #     - { label: 'Body', name: 'body', widget: 'markdown' }
+
+  - label: 'Dersler'
+    name: 'dersler'
+    folder: '_posts/dersler'
+    create: true
+    format: 'frontmatter'
+    slug: '{{slug}}'
+    identifier_field: slug
+    summary: '{{title}}'
+    fields:
+      - { label: 'Başlık', name: 'title', widget: 'string' }
+      - { label: 'Açıklama', name: 'description', widget: 'text' }
+      - { label: 'Slug', name: 'slug', widget: 'string' }
+      - { label: 'Featured Image', name: 'image', widget: 'image' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+
+  - label: 'Şubelerimiz'
+    name: 'subeler'
+    files:
+      - label: 'Çekmeköy Lise Şubesi'
+        name: 'cekmekoylisesubesi'
+        file: 'content/cekmekoylise.md'
+        fields:
+          - { label: 'Başlık', name: 'title', widget: 'string' }
+          - { label: 'Açıklama', name: 'description', widget: 'text' }
+          - label: 'Galeri'
+            name: 'galeri'
+            widget: list
+            fields:
+              - { label: 'Başlık', name: 'name', widget: 'string' }
+              - { label: 'Galeri Resmi', name: 'image', widget: 'image' }
+      - label: 'Çekmeköy Lise Şubesi'
+        name: 'cekmekoyortaokulsubesi'
+        file: 'content/cekmekoyortaokul.md'
+        fields:
+          - { label: 'Başlık', name: 'title', widget: 'string' }
+          - { label: 'Açıklama', name: 'description', widget: 'text' }
+          - label: 'Galeri'
+            name: 'galeri'
+            widget: list
+            fields:
+              - { label: 'Başlık', name: 'name', widget: 'string' }
+              - { label: 'Galeri Resmi', name: 'image', widget: 'image' }
+      - label: 'Bulgurlu Şubesi'
+        name: 'bulgurlusubesi'
+        file: 'content/bulgurlu.md'
+        fields:
+          - { label: 'Başlık', name: 'title', widget: 'string' }
+          - { label: 'Açıklama', name: 'description', widget: 'string' }
+          - label: 'Galeri'
+            name: 'galeri'
+            widget: list
+            fields:
+              - { label: 'Başlık', name: 'name', widget: 'string' }
+              - { label: 'Galeri Resmi', name: 'image', widget: 'image' }

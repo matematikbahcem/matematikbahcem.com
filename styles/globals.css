@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap";
+/**
+*  Global Class
+**/
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  background: #fff;
+  font-size: 16px;
+  line-height: 1.8;
+  font-weight: 400;
+  color: #666666;
+}
+.site-icon {
+  color: #fd5f00;
+  font-size: 1.6em;
+}
+.bgWrap {
+  position: fixed;
+  height: 100%;
+  width: 100vw;
+  overflow: hidden;
+  z-index: -1;
+}
+.button-default{
+  background: #fd5f00;
+  border: 1px solid #fd5f00;
+  color: #fff;
+}
