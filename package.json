@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.3",
+    "@netlify/plugin-nextjs": "^4.24.3",
     "@tailwindcss/typography": "^0.5.7",
     "axios": "^1.1.2",
     "marked": "^4.1.1",
