@@ -1,46 +1,43 @@
-import { Component } from 'react'
+import Image from 'next/image';
+import { Component } from 'react';
 import { attributes, react as HomeContent } from '../../content/etkinlik.md';
-import styles from './styles.module.css'
+import styles from './styles.module.css';
 
 class etkinlik extends Component {
-    render() {
-        let { title, description, image, etkinlikler } = attributes;
-        return(
-            <>
-            <section className={styles.section}>
+  render() {
+    let { title, description, image, etkinlikler } = attributes;
+    return (
+      <>
+        <section className={styles.section}>
+          <div className={styles.aboutleft}>
+            <div>
+              <h1 className="font-bold mb-4 text-3xl">{title}</h1>
+              <p>{description}</p>
+            </div>
+            <div className={styles.etkinliklist}>
+              {etkinlikler.map((etkinlik, k) => (
+                <span className={styles.span} key={k}>
+                  <span className={styles.iconspan}>
+                    <object type="image/svg+xml" data={etkinlik.icon} className={styles.icon}>
+                      {etkinlik.icon}
+                    </object>
+                  </span>
+                  <span className="col-span-3 leading-1">
+                    <h2 className="font-medium text-xl">{etkinlik.name}</h2>
+                    <p className="leading-7">{etkinlik.description}</p>
+                  </span>
+                </span>
+              ))}
+            </div>
+          </div>
 
-                <div className={styles.aboutleft}>
-                    <div>
-                        <h1 className="font-bold mb-4 text-3xl">{title}</h1>
-                        <p>{description}</p>
-                    </div>
-                    <div className={styles.etkinliklist}>
-                        {etkinlikler.map((etkinlik, k) => (
-                          <span className={styles.span} key={k}>
-                              <span className={styles.iconspan}>
-                                  <object type="image/svg+xml"
-                                          data={etkinlik.icon}
-                                          className={styles.icon}>
-                                    {etkinlik.icon}
-                                  </object>
-                              </span>
-                              <span className="col-span-3 leading-1">
-                                  <h2 className="font-medium text-xl">{etkinlik.name}</h2>
-                                  <p className="leading-7">{etkinlik.description}</p>
-                              </span>
-                          </span>
-                        ))}
-                    </div>
-                </div>
-
-                <div className={styles.aboutright}>
-                    <img src={image} />
-                </div>
-
-            </section>
-            </>
-        )
-    }
+          <div className={styles.aboutright}>
+            <Image alt={title} src={'/' + image} layout="responsive" width="100%" height="100%" />
+          </div>
+        </section>
+      </>
+    );
+  }
 }
 
-export default etkinlik
+export default etkinlik;

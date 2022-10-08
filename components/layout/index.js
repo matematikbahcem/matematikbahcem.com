@@ -5,6 +5,7 @@ import { IoIosSend } from 'react-icons/io';
 import { IoIosCall } from 'react-icons/io';
 import Navbar from '../navbar/index';
 import Footer from '../footer';
+import Image from 'next/image';
 
 const myLoader = ({ src }) => {
   return `${src}`;
@@ -18,7 +19,7 @@ const layout = ({ children }) => {
           <div className="col-span-1 lg:col-span-2 py-4 lg:py-6">
             <Link href="/">
               <a>
-                <img src="/image/logo.png" width="143" height="54" />
+                <Image alt="ansayfa" src="/image/logo.png" width="143" height="54" />
               </a>
             </Link>
           </div>

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Layout from '../components/layout';
 
 const Success = () => {
@@ -11,9 +12,9 @@ const Success = () => {
         </p>
         <p>
           Birazdan Anasayfaya yönlendirileceksiniz. Eğer yönlendirilmediyseniz{' '}
-          <a className="text-pink-700" href="/">
+          <Link className="text-pink-700" href="/">
             buraya
-          </a>{' '}
+          </Link>{' '}
           tıklayarak anasayfaya geçebilirsiziniz.
         </p>
       </div>

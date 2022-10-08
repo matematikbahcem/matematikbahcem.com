@@ -2,11 +2,12 @@ import react from 'react';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import marked from 'marked';
+import { marked } from 'marked';
 import styles from './styles.module.css';
 import Layout from '../../components/layout';
 import Hero from '../../components/herowrap';
 import Seo from '../../partials/seo';
+import Image from 'next/image';
 
 const Dersler = ({ contents, data }) => {
   return (
@@ -15,7 +16,7 @@ const Dersler = ({ contents, data }) => {
       <Layout>
         <Hero title={data.title} />
         <article className={styles.article}>
-          <img src={data.image} width="100%" />
+          <Image src={data.image} width="650" height="400" alt={data.title} />
           <div dangerouslySetInnerHTML={{ __html: contents }} />
         </article>
       </Layout>
@@ -36,14 +37,15 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 };
 
 export const getStaticProps = async ({ params: { slug } }) => {
   const markdownWithData = fs.readFileSync(path.join('_posts/dersler', slug + '.md')).toString();
   const parsedMarkdown = matter(markdownWithData);
-  const htmlString = marked(parsedMarkdown.content);
+  const htmlString = marked.parse(parsedMarkdown.content);
+
   return {
     props: {
       contents: htmlString,

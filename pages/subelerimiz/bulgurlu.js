@@ -5,6 +5,7 @@ import HeroWrap from '../../components/herowrap';
 import styles from './styles.module.css';
 import SimpleReactLightbox, { SRLWrapper } from 'simple-react-lightbox';
 import Seo from '../../partials/seo';
+import Image from 'next/image';
 
 class bulgurlu extends Component {
   render() {
@@ -26,7 +27,7 @@ class bulgurlu extends Component {
                   <div className={styles.gallery}>
                     {galeri.map((gal, k) => (
                       <a key={k} href={gal.image}>
-                        <img width="280" height="350" src={gal.image} alt={gal.title} />
+                        <Image width="280" height="350" src={'/' + gal.image} alt={gal.title} />
                       </a>
                     ))}
                   </div>

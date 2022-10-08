@@ -4,6 +4,7 @@ import styles from './styles.module.css';
 import SwiperCore, { Pagination, Autoplay, A11y, Lazy, EffectFade } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FaQuoteLeft } from 'react-icons/fa';
+import Image from 'next/image';
 
 SwiperCore.use([Pagination, Autoplay, A11y, Lazy, EffectFade]);
 
@@ -25,7 +26,7 @@ class yorumlar extends Component {
             <SwiperSlide key={k}>
               <div className={styles.card}>
                 <div className={styles.cardimg}>
-                  <img src={yorum.image} />{' '}
+                  <Image alt={yorum.mesaj} src={yorum.image} layout="responsive" width="100%" height="100%" />
                 </div>
                 <div className={styles.cardbody}>
                   <div className={styles.quote}>

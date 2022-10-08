@@ -7,6 +7,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import Image from 'next/image';
 
 export default class Slider extends Component {
   render() {
@@ -28,7 +29,12 @@ export default class Slider extends Component {
             <SwiperSlide key={k}>
               <div className="">
                 <div className="bgWrap">
-                  <img className="object-cover w-full h-full" alt={slides.title} src={slides.image} />
+                  <Image
+                    className="object-cover w-full h-full"
+                    alt={slides.title}
+                    src={'/' + slides.image}
+                    layout="fill"
+                  />
                 </div>
                 <div className={styles.overlay}></div>
                 <div className={styles.textcontainer}>

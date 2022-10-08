@@ -1,28 +1,24 @@
-import { Dialog, Transition } from '@headlessui/react'
-import { Fragment, useState } from 'react'
+import { Dialog, Transition } from '@headlessui/react';
+import Image from 'next/image';
+import { Fragment, useState } from 'react';
 import { attributes, react as AboutCompnent } from '../../content/popup.md';
 
-
 export default function MyModal(props) {
-  let [isOpen, setIsOpen] = useState(true)
+  let [isOpen, setIsOpen] = useState(true);
   let { image } = attributes;
 
   function closeModal() {
-    setIsOpen(false)
+    setIsOpen(false);
   }
 
   function openModal() {
-    setIsOpen(true)
+    setIsOpen(true);
   }
 
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
-        <Dialog
-          as="div"
-          className="fixed inset-0 z-50 overflow-y-auto"
-          onClose={closeModal}
-        >
+        <Dialog as="div" className="fixed inset-0 z-50 overflow-y-auto" onClose={closeModal}>
           <div className="min-h-screen px-4 text-center">
             <Transition.Child
               as={Fragment}
@@ -37,10 +33,7 @@ export default function MyModal(props) {
             </Transition.Child>
 
             {/* This element is to trick the browser into centering the modal contents. */}
-            <span
-              className="inline-block h-screen align-middle"
-              aria-hidden="true"
-            >
+            <span className="inline-block h-screen align-middle" aria-hidden="true">
               &#8203;
             </span>
             <Transition.Child
@@ -53,7 +46,7 @@ export default function MyModal(props) {
               leaveTo="opacity-0 scale-95"
             >
               <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
-              <div className="w-full h-4">
+                <div className="w-full h-4">
                   <button
                     type="button"
                     className="float-right inline-flex justify-center px-2 py-1 text-sm font-sm text-white bg-red-600 border border-transparent rounded-md hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:bg-red-600"
@@ -64,7 +57,7 @@ export default function MyModal(props) {
                 </div>
                 <div className="mt-2">
                   <p className="text-sm text-gray-500">
-                    <img src={ image } />
+                    <Image alt="duyuru" src={'/' + image} layout="responsive" width="100%" height="100%" />
                   </p>
                 </div>
               </div>
@@ -73,5 +66,5 @@ export default function MyModal(props) {
         </Dialog>
       </Transition>
     </>
-  )
+  );
 }

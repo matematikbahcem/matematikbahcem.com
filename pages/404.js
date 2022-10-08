@@ -1,4 +1,6 @@
 import Layout from '../components/layout';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Custum404() {
   return (
@@ -9,14 +11,14 @@ export default function Custum404() {
           <h2 className="font-semibold text-3xl mb-8 text-gray-600">Kime bakmıştınız?</h2>
           <p className="font-light text-gray-500">
             Aradığınız sayfa şuanda bizde yoktur. Eğer olması gereken bir sayfa ise bizimle{' '}
-            <a className="text-yellow-700" href="/iletisim">
+            <Link className="text-yellow-700" href="/iletisim">
               iletişime
-            </a>{' '}
+            </Link>{' '}
             geçiniz!
           </p>
         </div>
         <div>
-          <img src="/cat.jpg" alt="404" />
+          <Image src="/cat.jpg" alt="404" layout="responsive" width="100%" height="100%" />
         </div>
       </section>
     </Layout>
